@@ -24,3 +24,45 @@ VALUES
     (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+
+
+SELECT item_name AS Items, price as Cost
+FROM superstore
+ORDER BY price desc;
+
+SELECT * 
+FROM superstore
+WHERE category='Appliances'
+ORDER BY price desc;
+
+SELECT AVG (price), category, average_rating
+FROM superstore
+WHERE category='Appliances'
+GROUP BY category;
+
+SELECT * FROM superstore
+WHERE category='Electronics'
+Order by price desc;
+
+SELECT AVG (price), category, average_rating
+FROM superstore
+WHERE category='Electronics'
+GROUP BY category;
+
+SELECT * FROM superstore
+WHERE category='Furnishings'
+order by price desc;
+
+SELECT AVG (price), category, average_rating
+FROM superstore
+WHERE category='Furnishings'
+GROUP BY category;
+
+SELECT * FROM superstore
+WHERE category='Kitchen Supplies'
+order by price desc;
+
+SELECT AVG (price), category, average_rating
+FROM superstore
+WHERE category='Kitchen Supplies'
+GROUP BY category;
