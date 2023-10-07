@@ -1,0 +1,36 @@
+SELECT *
+FROM fortune_companies
+ORDER BY revenue desc;
+
+SELECT company_name, revenue,
+CASE WHEN revenue>=500 THEN '+500'
+WHEN revenue>=400 THEN '+400'
+WHEN revenue>=300 THEN '+300'
+WHEN revenue>=200 THEN '+200'
+ELSE '< 200' END AS Profit
+FROM fortune_companies
+ORDER BY revenue desc;
+
+SELECT company_name, maternity_leave_weeks,
+CASE WHEN maternity_leave_weeks>= 10 THEN 'Motherly Friendly'
+WHEN maternity_leave_weeks>= 6 THEN 'Acceptable'
+ELSE 'Unacceptable' END AS mother_friendliness
+FROM fortune_companies
+WHERE industry='Healthcare';
+
+SELECT company_name, employees, SUM(revenue)
+FROM fortune_companies
+GROUP BY company_name
+HAVING employees<=50000
+AND revenue>=300;
+
+SELECT industry, ROUND(AVG(revenue),1) as Avg_revenue_billions
+FROM fortune_companies
+GROUP BY industry
+HAVING Avg_revenue_billions>=200;
+
+SELECT industry, ROUND(AVG(revenue),1) as avg_revenue_billions
+FROM fortune_companies
+GROUP BY industry
+HAVING avg_revenue_billions>=200
+;
